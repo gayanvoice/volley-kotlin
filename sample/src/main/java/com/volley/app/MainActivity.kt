@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val url = "https://raw.githubusercontent.com/gayanvoice/volley-kotlin/master/data/file.json"
 
 
-        /*
+
 
         // Instantiate the cache
         val cache = DiskBasedCache(cacheDir, 1024 * 1024) // 1MB cap
@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
             })
         requestQueue.add(stringRequest)
 
-*/
 
+/*
 
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
 
+
+ */
 
 
     }

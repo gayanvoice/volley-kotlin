@@ -139,7 +139,7 @@ public class BasicNetwork implements Network {
                     List<Header> combinedHeaders = combineHeaders(responseHeaders, entry);
                     return new NetworkResponse(
                             HttpURLConnection.HTTP_NOT_MODIFIED,
-                            entry.data,
+                            entry.getData(),
                             /* notModified= */ true,
                             SystemClock.elapsedRealtime() - requestStart,
                             combinedHeaders);
@@ -259,13 +259,13 @@ public class BasicNetwork implements Network {
 
         Map<String, String> headers = new HashMap<>();
 
-        if (entry.etag != null) {
-            headers.put("If-None-Match", entry.etag);
+        if (entry.getEtag() != null) {
+            headers.put("If-None-Match", entry.getEtag());
         }
 
-        if (entry.lastModified > 0) {
+        if (entry.getLastModified() > 0) {
             headers.put(
-                    "If-Modified-Since", HttpHeaderParser.formatEpochAsRfc1123(entry.lastModified));
+                    "If-Modified-Since", HttpHeaderParser.formatEpochAsRfc1123(entry.getLastModified()));
         }
 
         return headers;
@@ -346,9 +346,9 @@ public class BasicNetwork implements Network {
         // Second, add headers from the cache entry to the network response as long as
         // they didn't appear in the network response, which should take precedence.
         List<Header> combinedHeaders = new ArrayList<>(responseHeaders);
-        if (entry.allResponseHeaders != null) {
-            if (!entry.allResponseHeaders.isEmpty()) {
-                for (Header header : entry.allResponseHeaders) {
+        if (entry.getAllResponseHeaders() != null) {
+            if (!entry.getAllResponseHeaders().isEmpty()) {
+                for (Header header : entry.getAllResponseHeaders()) {
                     if (!headerNamesFromNetworkResponse.contains(header.getName())) {
                         combinedHeaders.add(header);
                     }
@@ -356,8 +356,8 @@ public class BasicNetwork implements Network {
             }
         } else {
             // Legacy caches only have entry.responseHeaders.
-            if (!entry.responseHeaders.isEmpty()) {
-                for (Map.Entry<String, String> header : entry.responseHeaders.entrySet()) {
+            if (!entry.getResponseHeaders().isEmpty()) {
+                for (Map.Entry<String, String> header : entry.getResponseHeaders().entrySet()) {
                     if (!headerNamesFromNetworkResponse.contains(header.getKey())) {
                         combinedHeaders.add(new Header(header.getKey(), header.getValue()));
                     }

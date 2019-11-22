@@ -45,7 +45,7 @@ import java.util.Map;
  * Cache implementation that caches files directly onto the hard disk in the specified directory.
  * The default disk usage size is 5MB, but is configurable.
  *
- * <p>This cache supports the {@link Entry#allResponseHeaders} headers field.
+ * <p>This cache supports the {@link Entry#getAllResponseHeaders()} headers field.
  */
 public class DiskBasedCache implements Cache {
 
@@ -219,12 +219,12 @@ public class DiskBasedCache implements Cache {
      * @param fullExpire True to fully expire the entry, false to soft expire
      */
     @Override
-    public synchronized void invalidate(String key, boolean fullExpire) {
+    public synchronized void invalidate(String key, Boolean fullExpire) {
         Entry entry = get(key);
         if (entry != null) {
-            entry.softTtl = 0;
+            entry.setSoftTtl((long) 0);
             if (fullExpire) {
-                entry.ttl = 0;
+                entry.setTtl((long) 0);
             }
             put(key, entry);
         }
@@ -237,8 +237,8 @@ public class DiskBasedCache implements Cache {
         // deleted, then skip writing the entry in the first place, as this is just churn.
         // Note that we don't include the cache header overhead in this calculation for simplicity,
         // so putting entries which are just below the threshold may still cause this churn.
-        if (mTotalSize + entry.data.length > mMaxCacheSizeInBytes
-                && entry.data.length > mMaxCacheSizeInBytes * HYSTERESIS_FACTOR) {
+        if (mTotalSize + entry.getData().length > mMaxCacheSizeInBytes
+                && entry.getData().length > mMaxCacheSizeInBytes * HYSTERESIS_FACTOR) {
             return;
         }
         File file = getFileForKey(key);
@@ -251,7 +251,7 @@ public class DiskBasedCache implements Cache {
                 VolleyLog.Companion.d("Failed to write header for %s", file.getAbsolutePath());
                 throw new IOException();
             }
-            fos.write(entry.data);
+            fos.write(entry.getData());
             fos.close();
             e.size = file.length();
             putEntry(key, e);
@@ -462,22 +462,22 @@ public class DiskBasedCache implements Cache {
         CacheHeader(String key, Entry entry) {
             this(
                     key,
-                    entry.etag,
-                    entry.serverDate,
-                    entry.lastModified,
-                    entry.ttl,
-                    entry.softTtl,
+                    entry.getEtag(),
+                    entry.getServerDate(),
+                    entry.getLastModified(),
+                    entry.getTtl(),
+                    entry.getSoftTtl(),
                     getAllResponseHeaders(entry));
         }
 
         private static List<Header> getAllResponseHeaders(Entry entry) {
             // If the entry contains all the response headers, use that field directly.
-            if (entry.allResponseHeaders != null) {
-                return entry.allResponseHeaders;
+            if (entry.getAllResponseHeaders() != null) {
+                return entry.getAllResponseHeaders();
             }
 
             // Legacy fallback - copy headers from the map.
-            return HttpHeaderParser.toAllHeaderList(entry.responseHeaders);
+            return HttpHeaderParser.toAllHeaderList(entry.getResponseHeaders());
         }
 
         /**
@@ -506,14 +506,14 @@ public class DiskBasedCache implements Cache {
         /** Creates a cache entry for the specified data. */
         Entry toCacheEntry(byte[] data) {
             Entry e = new Entry();
-            e.data = data;
-            e.etag = etag;
-            e.serverDate = serverDate;
-            e.lastModified = lastModified;
-            e.ttl = ttl;
-            e.softTtl = softTtl;
-            e.responseHeaders = HttpHeaderParser.toHeaderMap(allResponseHeaders);
-            e.allResponseHeaders = Collections.unmodifiableList(allResponseHeaders);
+            e.setData(data);
+            e.setEtag(etag);
+            e.setServerDate(serverDate);
+            e.setLastModified(lastModified);
+            e.setTtl(ttl);
+            e.setSoftTtl(softTtl);
+            e.setResponseHeaders(HttpHeaderParser.toHeaderMap(allResponseHeaders));
+            e.setAllResponseHeaders(Collections.unmodifiableList(allResponseHeaders));
             return e;
         }
 

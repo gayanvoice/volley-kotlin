@@ -18,6 +18,8 @@ package com.volley.kotlin.toolbox;
 
 import com.volley.kotlin.Cache;
 
+import org.jetbrains.annotations.Nullable;
+
 /** A cache that doesn't. */
 public class NoCache implements Cache {
     @Override
@@ -32,11 +34,13 @@ public class NoCache implements Cache {
     public void put(String key, Entry entry) {}
 
     @Override
-    public void invalidate(String key, boolean fullExpire) {}
+    public void invalidate(String key, Boolean fullExpire) {}
 
     @Override
     public void remove(String key) {}
 
     @Override
     public void initialize() {}
+
+
 }

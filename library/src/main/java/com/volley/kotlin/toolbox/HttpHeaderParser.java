@@ -120,14 +120,14 @@ public class HttpHeaderParser {
         }
 
         Cache.Entry entry = new Cache.Entry();
-        entry.data = response.data;
-        entry.etag = serverEtag;
-        entry.softTtl = softExpire;
-        entry.ttl = finalExpire;
-        entry.serverDate = serverDate;
-        entry.lastModified = lastModified;
-        entry.responseHeaders = headers;
-        entry.allResponseHeaders = response.allHeaders;
+        entry.setData(response.data);
+        entry.setEtag(serverEtag);
+        entry.setSoftTtl(softExpire);
+        entry.setTtl(finalExpire);
+        entry.setServerDate(serverDate);
+        entry.setLastModified(lastModified);
+        entry.setResponseHeaders(headers);
+        entry.setAllResponseHeaders(response.allHeaders);
 
         return entry;
     }
