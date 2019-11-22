@@ -44,7 +44,7 @@ public class HttpHeaderParser {
     private static final String RFC1123_OUTPUT_FORMAT = "EEE, dd MMM yyyy HH:mm:ss 'GMT'";
 
     /**
-     * Extracts a {@link com.android.volley.Cache.Entry} from a {@link NetworkResponse}.
+     * Extracts a {@link com.volley.kotlin.Cache.Entry} from a {@link NetworkResponse}.
      *
      * @param response The network response to parse headers from
      * @return a cache entry for the given response, or null if the response is not cacheable.
@@ -143,9 +143,9 @@ public class HttpHeaderParser {
             // these values are pretty common and cause log spam.
             String message = "Unable to parse dateStr: %s, falling back to 0";
             if ("0".equals(dateStr) || "-1".equals(dateStr)) {
-                VolleyLog.v(message, dateStr);
+                VolleyLog.Companion.v(message, dateStr);
             } else {
-                VolleyLog.e(e, message, dateStr);
+                VolleyLog.Companion.e(e, message, dateStr);
             }
 
             return 0;

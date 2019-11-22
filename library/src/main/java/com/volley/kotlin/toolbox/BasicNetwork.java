@@ -48,7 +48,7 @@ import java.util.TreeSet;
 
 /** A network performing Volley requests over an {@link HttpStack}. */
 public class BasicNetwork implements Network {
-    protected static final boolean DEBUG = VolleyLog.DEBUG;
+    protected static final boolean DEBUG = VolleyLog.Companion.getDEBUG();
 
     private static final int SLOW_REQUEST_THRESHOLD_MS = 3000;
 
@@ -180,7 +180,7 @@ public class BasicNetwork implements Network {
                 } else {
                     throw new NoConnectionError(e);
                 }
-                VolleyLog.e("Unexpected response code %d for %s", statusCode, request.getUrl());
+                VolleyLog.Companion.e("Unexpected response code %d for %s", statusCode, request.getUrl());
                 NetworkResponse networkResponse;
                 if (responseContents != null) {
                     networkResponse =
@@ -219,7 +219,7 @@ public class BasicNetwork implements Network {
     private void logSlowRequests(
             long requestLifetime, Request<?> request, byte[] responseContents, int statusCode) {
         if (DEBUG || requestLifetime > SLOW_REQUEST_THRESHOLD_MS) {
-            VolleyLog.d(
+            VolleyLog.Companion.d(
                     "HTTP response for request=<%s> [lifetime=%d], [size=%s], "
                             + "[rc=%d], [retryCount=%s]",
                     request,
@@ -273,7 +273,7 @@ public class BasicNetwork implements Network {
 
     protected void logError(String what, String url, long start) {
         long now = SystemClock.elapsedRealtime();
-        VolleyLog.v("HTTP ERROR(%s) %d ms to fetch %s", what, (now - start), url);
+        VolleyLog.Companion.v("HTTP ERROR(%s) %d ms to fetch %s", what, (now - start), url);
     }
 
     /** Reads the contents of an InputStream into a byte[]. */
@@ -300,7 +300,7 @@ public class BasicNetwork implements Network {
             } catch (IOException e) {
                 // This can happen if there was an exception above that left the stream in
                 // an invalid state.
-                VolleyLog.v("Error occurred when closing InputStream");
+                VolleyLog.Companion.v("Error occurred when closing InputStream");
             }
             mPool.returnBuf(buffer);
             bytes.close();

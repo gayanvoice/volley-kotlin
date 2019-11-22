@@ -24,7 +24,9 @@ import android.text.TextUtils;
 import androidx.annotation.CallSuper;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
-import com.volley.kotlin.VolleyLog.MarkerLog;
+import com.volley.kotlin.VolleyLog;
+import com.volley.kotlin.toolbox.Volley;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
@@ -64,7 +66,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     /** An event log tracing the lifetime of this request; for debugging. */
-    private final MarkerLog mEventLog = MarkerLog.ENABLED ? new MarkerLog() : null;
+    private final VolleyLog.MarkerLog mEventLog = VolleyLog.MarkerLog.Companion.getENABLED() ? new VolleyLog.MarkerLog() : null;
 
     /**
      * Request method of this request. Currently supports GET, POST, PUT, DELETE, HEAD, OPTIONS,
@@ -129,7 +131,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
      * listener is not provided here as delivery of responses is provided by subclasses, who have a
      * better idea of how to deliver an already-parsed response.
      *
-     * @deprecated Use {@link #Request(int, String, com.android.volley.Response.ErrorListener)}.
+     * @deprecated Use {@link #Request(int, String, com.volley.kotlin.Response.ErrorListener)}.
      */
     @Deprecated
     public Request(String url, Response.ErrorListener listener) {
@@ -176,7 +178,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return mTag;
     }
 
-    /** @return this request's {@link com.android.volley.Response.ErrorListener}. */
+    /** @return this request's {@link com.volley.kotlin.Response.ErrorListener}. */
     @Nullable
     public Response.ErrorListener getErrorListener() {
         synchronized (mLock) {
@@ -215,7 +217,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     /** Adds an event to this request's event log; for debugging. */
     public void addMarker(String tag) {
-        if (MarkerLog.ENABLED) {
+        if (VolleyLog.MarkerLog.Companion.getENABLED()) {
             mEventLog.add(tag, Thread.currentThread().getId());
         }
     }
@@ -229,7 +231,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         if (mRequestQueue != null) {
             mRequestQueue.finish(this);
         }
-        if (MarkerLog.ENABLED) {
+        if (VolleyLog.MarkerLog.Companion.getENABLED()) {
             final long threadId = Thread.currentThread().getId();
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 // If we finish marking off of the main thread, we need to

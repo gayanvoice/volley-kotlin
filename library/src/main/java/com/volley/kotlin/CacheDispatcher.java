@@ -18,6 +18,9 @@ package com.volley.kotlin;
 
 import android.os.Process;
 import androidx.annotation.VisibleForTesting;
+
+import com.volley.kotlin.toolbox.Volley;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +37,8 @@ import java.util.concurrent.BlockingQueue;
  */
 public class CacheDispatcher extends Thread {
 
-    private static final boolean DEBUG = VolleyLog.DEBUG;
+
+    private static final boolean DEBUG = VolleyLog.Companion.getDEBUG();
 
     /** The queue of requests coming in for triage. */
     private final BlockingQueue<Request<?>> mCacheQueue;
@@ -86,7 +90,7 @@ public class CacheDispatcher extends Thread {
 
     @Override
     public void run() {
-        if (DEBUG) VolleyLog.v("start new dispatcher");
+        if (DEBUG) VolleyLog.Companion.v("start new dispatcher");
         Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
 
         // Make a blocking call to initialize the cache.
@@ -101,7 +105,7 @@ public class CacheDispatcher extends Thread {
                     Thread.currentThread().interrupt();
                     return;
                 }
-                VolleyLog.e(
+                VolleyLog.Companion.e(
                         "Ignoring spurious interrupt of CacheDispatcher thread; "
                                 + "use quit() to terminate it");
             }
@@ -232,8 +236,8 @@ public class CacheDispatcher extends Thread {
                 waitingRequests = mWaitingRequests.remove(cacheKey);
             }
             if (waitingRequests != null) {
-                if (VolleyLog.DEBUG) {
-                    VolleyLog.v(
+                if (VolleyLog.Companion.getDEBUG()) {
+                    VolleyLog.Companion.v(
                             "Releasing %d waiting requests for cacheKey=%s.",
                             waitingRequests.size(), cacheKey);
                 }
@@ -250,8 +254,8 @@ public class CacheDispatcher extends Thread {
             String cacheKey = request.getCacheKey();
             List<Request<?>> waitingRequests = mWaitingRequests.remove(cacheKey);
             if (waitingRequests != null && !waitingRequests.isEmpty()) {
-                if (VolleyLog.DEBUG) {
-                    VolleyLog.v(
+                if (VolleyLog.Companion.getDEBUG()) {
+                    VolleyLog.Companion.v(
                             "%d waiting requests for cacheKey=%s; resend to network",
                             waitingRequests.size(), cacheKey);
                 }
@@ -261,7 +265,7 @@ public class CacheDispatcher extends Thread {
                 try {
                     mCacheDispatcher.mNetworkQueue.put(nextInLine);
                 } catch (InterruptedException iex) {
-                    VolleyLog.e("Couldn't add request to queue. %s", iex.toString());
+                    VolleyLog.Companion.e("Couldn't add request to queue. %s", iex.toString());
                     // Restore the interrupted status of the calling thread (i.e. NetworkDispatcher)
                     Thread.currentThread().interrupt();
                     // Quit the current CacheDispatcher thread.
@@ -291,8 +295,8 @@ public class CacheDispatcher extends Thread {
                 request.addMarker("waiting-for-response");
                 stagedRequests.add(request);
                 mWaitingRequests.put(cacheKey, stagedRequests);
-                if (VolleyLog.DEBUG) {
-                    VolleyLog.d("Request for cacheKey=%s is in flight, putting on hold.", cacheKey);
+                if (VolleyLog.Companion.getDEBUG()) {
+                    VolleyLog.Companion.d("Request for cacheKey=%s is in flight, putting on hold.", cacheKey);
                 }
                 return true;
             } else {
@@ -300,8 +304,8 @@ public class CacheDispatcher extends Thread {
                 // flight.
                 mWaitingRequests.put(cacheKey, null);
                 request.setNetworkRequestCompleteListener(this);
-                if (VolleyLog.DEBUG) {
-                    VolleyLog.d("new request, sending to network %s", cacheKey);
+                if (VolleyLog.Companion.getDEBUG()) {
+                    VolleyLog.Companion.d("new request, sending to network %s", cacheKey);
                 }
                 return false;
             }

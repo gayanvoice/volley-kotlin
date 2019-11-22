@@ -94,7 +94,7 @@ public class NetworkDispatcher extends Thread {
                     Thread.currentThread().interrupt();
                     return;
                 }
-                VolleyLog.e(
+                VolleyLog.Companion.e(
                         "Ignoring spurious interrupt of NetworkDispatcher thread; "
                                 + "use quit() to terminate it");
             }
@@ -160,7 +160,7 @@ public class NetworkDispatcher extends Thread {
             parseAndDeliverNetworkError(request, volleyError);
             request.notifyListenerResponseNotUsable();
         } catch (Exception e) {
-            VolleyLog.e(e, "Unhandled exception %s", e.toString());
+            VolleyLog.Companion.e(e, "Unhandled exception %s", e.toString());
             VolleyError volleyError = new VolleyError(e);
             volleyError.setNetworkTimeMs(SystemClock.elapsedRealtime() - startTimeMs);
             mDelivery.postError(request, volleyError);
