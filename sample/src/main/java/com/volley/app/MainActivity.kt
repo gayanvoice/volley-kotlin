@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
-        val url = "https://raw.githubusercontent.com/gayanvoice/python-gui/master/README.md"
+        val url = "https://raw.githubusercontent.com/gayanvoice/volley-kotlin/master/CONTRIBUTING.md"
 
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
