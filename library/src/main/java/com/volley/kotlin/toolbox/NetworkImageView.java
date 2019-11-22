@@ -19,7 +19,7 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import com.volley.kotlin.VolleyError;
@@ -27,7 +27,7 @@ import com.volley.kotlin.toolbox.ImageLoader.ImageContainer;
 import com.volley.kotlin.toolbox.ImageLoader.ImageListener;
 
 /** Handles fetching an image from a URL as well as the life-cycle of the associated request. */
-public class NetworkImageView extends ImageView {
+public class NetworkImageView extends AppCompatImageView {
     /** The URL of the network image to load */
     private String mUrl;
 
