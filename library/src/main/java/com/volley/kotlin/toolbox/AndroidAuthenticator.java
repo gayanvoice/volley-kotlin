@@ -26,10 +26,6 @@ import android.os.Bundle;
 import androidx.annotation.VisibleForTesting;
 import com.volley.kotlin.AuthFailureError;
 
-/**
- * An Authenticator that uses {@link AccountManager} to get auth tokens of a specified type for a
- * specified account.
- */
 // TODO: Update this to account for runtime permissions
 @SuppressLint("MissingPermission")
 public class AndroidAuthenticator implements Authenticator {
@@ -38,25 +34,10 @@ public class AndroidAuthenticator implements Authenticator {
     private final String mAuthTokenType;
     private final boolean mNotifyAuthFailure;
 
-    /**
-     * Creates a new authenticator.
-     *
-     * @param context Context for accessing AccountManager
-     * @param account Account to authenticate as
-     * @param authTokenType Auth token type passed to AccountManager
-     */
     public AndroidAuthenticator(Context context, Account account, String authTokenType) {
         this(context, account, authTokenType, /* notifyAuthFailure= */ false);
     }
 
-    /**
-     * Creates a new authenticator.
-     *
-     * @param context Context for accessing AccountManager
-     * @param account Account to authenticate as
-     * @param authTokenType Auth token type passed to AccountManager
-     * @param notifyAuthFailure Whether to raise a notification upon auth failure
-     */
     public AndroidAuthenticator(
             Context context, Account account, String authTokenType, boolean notifyAuthFailure) {
         this(AccountManager.get(context), account, authTokenType, notifyAuthFailure);
@@ -74,12 +55,10 @@ public class AndroidAuthenticator implements Authenticator {
         mNotifyAuthFailure = notifyAuthFailure;
     }
 
-    /** Returns the Account being used by this authenticator. */
     public Account getAccount() {
         return mAccount;
     }
 
-    /** Returns the Auth Token Type used by this authenticator. */
     public String getAuthTokenType() {
         return mAuthTokenType;
     }

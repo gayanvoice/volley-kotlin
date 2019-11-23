@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         // Add the request to the RequestQueue.
-        queue.add(stringRequest)
+        queue!!.add(stringRequest)
 
 
     }

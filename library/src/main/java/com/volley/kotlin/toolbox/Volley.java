@@ -25,6 +25,77 @@ import com.volley.kotlin.Network;
 import com.volley.kotlin.RequestQueue;
 import java.io.File;
 
+
+/*
+
+package com.volley.kotlin.toolbox
+
+import android.content.Context
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
+import android.net.http.AndroidHttpClient
+import android.os.Build
+import com.volley.kotlin.Network
+import com.volley.kotlin.RequestQueue
+import com.volley.kotlin.toolbox.DiskBasedCache.FileSupplier
+import java.io.File
+
+open class Volley {
+    companion object {
+        private val DEFAULT_CACHE_DIR = "volley"
+        fun newRequestQueue(context: Context, stack: BaseHttpStack): RequestQueue? {
+            var network: BasicNetwork
+
+            if (stack == null) {
+                if (Build.VERSION.SDK_INT >= 9) {
+                    network = BasicNetwork(HurlStack())
+                } else {
+                    var userAgent = "volley/0"
+                    try {
+                        val packageName: String = context!!.packageName
+                        val info: PackageInfo =
+                            context.packageManager.getPackageInfo(packageName,  0)
+        userAgent = packageName + "/" + info.versionCode
+        } catch (e: PackageManager.NameNotFoundException) {
+        }
+        network =
+        BasicNetwork(HttpClientStack(AndroidHttpClient.newInstance(userAgent)))
+        }
+        } else {
+        network = BasicNetwork(stack)
+        }
+        return newRequestQueue(context, network)
+        }
+
+@Deprecated("")
+        fun newRequestQueue(context: Context, stack: HttpStack?): RequestQueue{
+                return if (stack == null) { newRequestQueue(context, null) }
+                else newRequestQueue(context, BasicNetwork(stack))
+                }
+
+private fun newRequestQueue(context: Context, network: Network): RequestQueue {
+        val appContext = context.applicationContext
+        val cacheSupplier: FileSupplier = object : FileSupplier {
+private var cacheDir: File? = null
+        override fun get(): File {
+        if (cacheDir == null) {
+        cacheDir = File(appContext.cacheDir, DEFAULT_CACHE_DIR)
+        }
+        return cacheDir!!
+        }
+        }
+        val queue = RequestQueue(DiskBasedCache(cacheSupplier), network)
+        queue.start()
+        return queue
+        }
+
+        fun newRequestQueue(context: Context): RequestQueue? {
+        return newRequestQueue(context, null)
+        }
+        }
+
+        }
+ */
 public class Volley {
 
     /** Default on-disk cache directory. */
@@ -39,6 +110,7 @@ public class Volley {
      */
     public static RequestQueue newRequestQueue(Context context, BaseHttpStack stack) {
         BasicNetwork network;
+        
         if (stack == null) {
             if (Build.VERSION.SDK_INT >= 9) {
                 network = new BasicNetwork(new HurlStack());
@@ -89,8 +161,7 @@ public class Volley {
         final Context appContext = context.getApplicationContext();
         // Use a lazy supplier for the cache directory so that newRequestQueue() can be called on
         // main thread without causing strict mode violation.
-        DiskBasedCache.FileSupplier cacheSupplier =
-                new DiskBasedCache.FileSupplier() {
+        DiskBasedCache.FileSupplier cacheSupplier = new DiskBasedCache.FileSupplier() {
                     private File cacheDir = null;
 
                     @Override
