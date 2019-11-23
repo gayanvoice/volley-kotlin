@@ -75,8 +75,19 @@ The following files have been translated and their progress can be shown below
  - `ClientError.kt` ✔️
  - `DefaultRetryPolicy.kt` ✔️
  - `ExecutorDelivery.java` ❌
- - `CacheDispatcher.java` ❌
- - `CacheDispatcher.java` ❌
- - `CacheDispatcher.java` ❌
- - `CacheDispatcher.java` ❌
- - `CacheDispatcher.java` ❌
+ - `Header.kt` ✔️
+ - `Network.kt` ✔️
+ - `NetworkDispatcher.java` ❌
+ - `NetworkError.kt` ✔️
+ - `NetworkResponse.kt` ✔️
+ - `NoConnectionError.kt` ✔️
+ - `ParseError.kt` ✔️
+ - `Request.java` ❌
+ - `RequestQueue.java` ❌
+ - `Response.kt` ✔️
+ - `ResponseDelivery.kt` ✔️
+ - `RetryPolicy.kt` ✔️
+ - `ServerError.kt` ✔️
+ - `TimeoutError.kt` ✔️
+ - `VolleyError.kt` ✔️
+ - `VolleyLog.kt` ✔️
