@@ -98,10 +98,10 @@ The following files have been translated and their progress can be shown below
  - **[AdaptedHttpStack.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/AdaptedHttpStack.kt)** ✔️
  - **[AndroidAuthenticator.java](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/AndroidAuthenticator.java)** ❌
  - **[Authenticator.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/Authenticator.kt)** ✔️
+ 
+- **[BaseHttpStack.java](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/BaseHttpStack.java)** ❌
+- **[BasicNetwork.java](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/BasicNetwork.java)** ❌
 
-
- - `BaseHttpStack.java` ❌
- - `BasicNetwork.java` ❌
  - `ByteArrayPool.java` ❌
  - `ClearCacheRequest.kt` ✔️
  - `DiskBasedCache.java` ❌
