@@ -69,6 +69,7 @@ requestQueue.add(stringRequest)
 
 The following files have been translated and their progress can be shown below
 
+#### `com.volley.kotlin`
  - `AuthFailureError.kt` ✔️ 
  - `Cache.kt` ✔️
  - `CacheDispatcher.java` ❌
@@ -91,3 +92,17 @@ The following files have been translated and their progress can be shown below
  - `TimeoutError.kt` ✔️
  - `VolleyError.kt` ✔️
  - `VolleyLog.kt` ✔️
+#### `com.volley.kotlin.toolbox`
+ - `AdaptedHttpStack.kt` ✔️ 
+ - `AndroidAuthenticator.java` ❌
+ - `Authenticator.kt` ✔️
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
+ - `AndroidAuthenticator.java` ❌
