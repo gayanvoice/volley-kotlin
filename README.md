@@ -72,9 +72,9 @@ requestQueue.add(stringRequest)
 The following files have been translated and their progress can be shown below
 
 #### `com.volley.kotlin`
- - `AuthFailureError.kt` ✔️ 
- - `Cache.kt` ✔️ [Edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/Cache.kt)
- - `CacheDispatcher.java` ❌
+ - `AuthFailureError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/AuthFailureError.kt)
+ - `Cache.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/Cache.kt)
+ - `CacheDispatcher.java` ❌ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/CacheDispatcher.java)
  - `ClientError.kt` ✔️
  - `DefaultRetryPolicy.kt` ✔️
  - `ExecutorDelivery.java` ❌
