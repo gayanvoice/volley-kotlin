@@ -92,10 +92,10 @@ The following files have been translated and their progress can be shown below
  - `RetryPolicy.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/RetryPolicy.kt)
  - `ServerError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/ServerError.kt)
  - `TimeoutError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/TimeoutError.kt)
- - `VolleyError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyError.kt)
- - `VolleyLog.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyLog.kt)
+ - [VolleyError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyError.kt) ✔️
+ - [VolleyLog,kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyLog.kt) ✔️
 #### `com.volley.kotlin.toolbox`
- - **[AdaptedHttpStack.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/AdaptedHttpStack.kt)** ✔️
+ - [AdaptedHttpStack.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/AdaptedHttpStack.kt) ✔️
  - `AndroidAuthenticator.java` ❌
  - `Authenticator.kt` ✔️
  - `BaseHttpStack.java` ❌
