@@ -69,14 +69,14 @@ requestQueue.add(stringRequest)
 
 The following files have been translated and their progress can be shown below
 
-`AuthFailureError.kt` ✔️
-`Cache.kt` ✔️
-`CacheDispatcher.java` ❌
-`ClientError.kt` ✔️
-`DefaultRetryPolicy.kt` ✔️
-`ExecutorDelivery.java` ❌
-`CacheDispatcher.java` ❌
-`CacheDispatcher.java` ❌
-`CacheDispatcher.java` ❌
-`CacheDispatcher.java` ❌
-`CacheDispatcher.java` ❌
+ - `AuthFailureError.kt` ✔️ 
+ - `Cache.kt` ✔️
+ - `CacheDispatcher.java` ❌
+ - `ClientError.kt` ✔️
+ - `DefaultRetryPolicy.kt` ✔️
+ - `ExecutorDelivery.java` ❌
+ - `CacheDispatcher.java` ❌
+ - `CacheDispatcher.java` ❌
+ - `CacheDispatcher.java` ❌
+ - `CacheDispatcher.java` ❌
+ - `CacheDispatcher.java` ❌
