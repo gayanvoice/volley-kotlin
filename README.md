@@ -95,11 +95,16 @@ The following files have been translated and their progress can be shown below
  - **[VolleyError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyError.kt)** ✔️
  - **[VolleyLog,kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyLog.kt)** ✔️
 #### `com.volley.kotlin.toolbox`
+- **[RetryPolicy.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/RetryPolicy.kt)** ✔️ 
+ - **[ServerError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/ServerError.kt)** ✔️
+ - **[TimeoutError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/TimeoutError.kt)** ✔️
+ - **[VolleyError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyError.kt)** ✔️
+ - **[VolleyLog,kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyLog.kt)** ✔️
+ 
  - **[AdaptedHttpStack.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/AdaptedHttpStack.kt)** ✔️
  - **[AndroidAuthenticator.java](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/AndroidAuthenticator.java)** ❌
  - **[Authenticator.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/Authenticator.kt)** ✔️
- 
-- **[BaseHttpStack.java](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/BaseHttpStack.java)** ❌
+ - **[BaseHttpStack.java](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/BaseHttpStack.java)** ❌
 - **[BasicNetwork.java](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/BasicNetwork.java)** ❌
 
  - `ByteArrayPool.java` ❌
