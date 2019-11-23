@@ -13,8 +13,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val textView = findViewById<TextView>(R.id.text)
-        val url = "https://raw.githubusercontent.com/gayanvoice/volley-kotlin/master/data/file.json"
+        val url = "https://raw.githubusercontent.com/gayanvoice/volley-kotlin/master/data/sample.txt"
 
+        /*
         // Instantiate the cache
         val cache = DiskBasedCache(cacheDir, 1024 * 1024) // 1MB cap
         val network = BasicNetwork(HurlStack())
@@ -38,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         requestQueue.add(stringRequest)
 
 
-/*
+
+*/
 
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
@@ -46,15 +48,18 @@ class MainActivity : AppCompatActivity() {
 
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
-            Response.Listener<String> { response ->
-                textView.setText(response)
+              object:Response.Listener<String> {
+                override fun onResponse(response: String) {
+                    textView.setText(response)
+                }
             },
-            Response.ErrorListener { textView.text = "That didn't work!" })
+            object:Response.ErrorListener {
+                override fun onErrorResponse(error: VolleyError?) {
+                    textView.text = error.toString()
+                }
+            })
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
-
-
- */
 
 
     }
