@@ -74,6 +74,7 @@ The following files have been translated and their progress can be shown below
 #### `com.volley.kotlin`
  - `AuthFailureError.kt` ✔️ 
  - `Cache.kt` ✔️
+ - `[currently not supported](https://youtrack.jetbrains.com/issue/KT-7770) `
  - `CacheDispatcher.java` ❌
  - `ClientError.kt` ✔️
  - `DefaultRetryPolicy.kt` ✔️
