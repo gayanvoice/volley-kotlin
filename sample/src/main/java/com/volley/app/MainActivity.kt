@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val textView = findViewById<TextView>(R.id.text)
-        val url = "https://raw.githubusercontent.com/gayanvoice/volley-kotlin/master/data/file.json"
+        val url = "https://raw.githubusercontent.com/gayanvoice/volley-kotlin/master/data/sample.json"
 
         /*
         // Instantiate the cache
