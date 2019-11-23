@@ -95,7 +95,7 @@ The following files have been translated and their progress can be shown below
  - `VolleyError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyError.kt)
  - `VolleyLog.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyLog.kt)
 #### `com.volley.kotlin.toolbox`
- - `AdaptedHttpStack.kt` ✔️ 
+ - `AdaptedHttpStack.kt` ✔️ **[edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/toolbox/AdaptedHttpStack.kt)**
  - `AndroidAuthenticator.java` ❌
  - `Authenticator.kt` ✔️
  - `BaseHttpStack.java` ❌
