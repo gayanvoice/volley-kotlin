@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             start()
         }
 
+
         // SAM conversion is currently not supported for interfaces defined in Kotlin https://stackoverflow.com/a/43737962
         val stringRequest = StringRequest(Request.Method.GET, url,
             object:Response.Listener<String> {
