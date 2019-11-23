@@ -72,8 +72,8 @@ requestQueue.add(stringRequest)
 The following files have been translated and their progress can be shown below
 
 #### `com.volley.kotlin`
- - `AuthFailureError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/AuthFailureError.kt)
- - `Cache.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/Cache.kt)
+ - **[AuthFailureError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/AuthFailureError.kt)** ✔️
+ - **[Cache.kt ✔️](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/Cache.kt)**
  - `CacheDispatcher.java` ❌ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/CacheDispatcher.java)
  - `ClientError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/ClientError.kt)
  - `DefaultRetryPolicy.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/DefaultRetryPolicy.kt)
@@ -89,9 +89,9 @@ The following files have been translated and their progress can be shown below
  - `RequestQueue.java` ❌ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/RequestQueue.java)
  - `Response.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/Response.kt)
  - `ResponseDelivery.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/ResponseDelivery.kt)
- - `RetryPolicy.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/RetryPolicy.kt)
- - `ServerError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/ServerError.kt)
- - `TimeoutError.kt` ✔️ [edit](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/TimeoutError.kt)
+ - **[RetryPolicy.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/RetryPolicy.kt)** ✔️ 
+ - **[ServerError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/ServerError.kt)** ✔️
+ - **[TimeoutError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/TimeoutError.kt)** ✔️
  - **[VolleyError.kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyError.kt)** ✔️
  - **[VolleyLog,kt](https://github.com/gayanvoice/volley-kotlin/blob/master/library/src/main/java/com/volley/kotlin/VolleyLog.kt)** ✔️
 #### `com.volley.kotlin.toolbox`
