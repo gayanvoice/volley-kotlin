@@ -102,7 +102,7 @@ public class NetworkImageView extends AppCompatImageView {
      */
     @MainThread
     public void setImageUrl(String url, ImageLoader imageLoader) {
-        Threads.throwIfNotOnMainThread();
+        Threads.Companion.throwIfNotOnMainThread();
         mUrl = url;
         mImageLoader = imageLoader;
         // The URL has potentially changed. See if we need to load it.

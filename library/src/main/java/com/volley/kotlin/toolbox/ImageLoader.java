@@ -165,7 +165,7 @@ public class ImageLoader {
      */
     @MainThread
     public boolean isCached(String requestUrl, int maxWidth, int maxHeight, ScaleType scaleType) {
-        Threads.throwIfNotOnMainThread();
+        Threads.Companion.throwIfNotOnMainThread();
 
         String cacheKey = getCacheKey(requestUrl, maxWidth, maxHeight, scaleType);
         return mCache.getBitmap(cacheKey) != null;
@@ -217,7 +217,7 @@ public class ImageLoader {
             ScaleType scaleType) {
 
         // only fulfill requests that were initiated from the main thread.
-        Threads.throwIfNotOnMainThread();
+        Threads.Companion.throwIfNotOnMainThread();
 
         final String cacheKey = getCacheKey(requestUrl, maxWidth, maxHeight, scaleType);
 
@@ -375,7 +375,7 @@ public class ImageLoader {
          */
         @MainThread
         public void cancelRequest() {
-            Threads.throwIfNotOnMainThread();
+            Threads.Companion.throwIfNotOnMainThread();
 
             if (mListener == null) {
                 return;
