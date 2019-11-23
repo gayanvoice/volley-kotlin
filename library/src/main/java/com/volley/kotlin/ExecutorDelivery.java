@@ -19,16 +19,91 @@ package com.volley.kotlin;
 import android.os.Handler;
 import java.util.concurrent.Executor;
 
-/** Delivers responses and errors. */
+/*
+
+package com.volley.kotlin
+
+import android.os.Handler
+import java.util.concurrent.Executor
+
+open class ExecutorDelivery : ResponseDelivery{
+    private var mResponsePoster: Executor? = null
+    constructor(handler: Handler) { // Make an Executor that just wraps the handler.
+        mResponsePoster = Executor { command -> handler.post(command) }
+    }
+
+    constructor(executor: Executor?) {
+        mResponsePoster = executor
+    }
+
+    override fun postResponse(request: Request<*>?, response: Response<*>?) {
+        postResponse(request, response, null)
+    }
+
+
+    override fun postResponse(request: Request<*>?, response: Response<*>?, runnable: Runnable?) {
+        request!!.markDelivered()
+        request.addMarker("post-response")
+        mResponsePoster!!.execute(ResponseDeliveryRunnable(request, response!!, runnable!!))
+    }
+
+    override fun postError(request: Request<*>?, error: VolleyError?) {
+        request!!.addMarker("post-error")
+        val response: Response<*> = Response!!.error(error)
+        mResponsePoster!!.execute(ResponseDeliveryRunnable(request, response, null))
+    }
+
+
+    inner class ResponseDeliveryRunnable: Runnable {
+        var mRequest: Request<*>? = null
+        var mResponse: Response<*>? = null
+        var mRunnable: Runnable? = null
+
+        constructor(request: Request<*>, response: Response<*>, runnable: Runnable) {
+            this.mRequest = request
+            this.mResponse = response
+            this.mRunnable = runnable
+        }
+
+        @SuppressWarnings("unchecked")
+        override fun run(){
+            if (mRequest!!.isCanceled) {
+                mRequest!!.finish("canceled-at-delivery")
+                return
+            }
+
+
+            if (mResponse!!.isSuccess) {
+                mRequest!!.deliverResponse(mResponse!!.result)
+            } else {
+                mRequest!!.deliverError(mResponse!!.error)
+            }
+
+
+            if (mResponse!!.intermediate) {
+                mRequest!!.addMarker("intermediate-response")
+            } else {
+                mRequest!!.finish("done")
+            }
+
+            if (mRunnable != null) {
+                mRunnable!!.run()
+            }
+
+        }
+
+    }
+
+}
+
+ */
+
+
+
 public class ExecutorDelivery implements ResponseDelivery {
-    /** Used for posting responses, typically to the main thread. */
+
     private final Executor mResponsePoster;
 
-    /**
-     * Creates a new response delivery interface.
-     *
-     * @param handler {@link Handler} to post responses on
-     */
     public ExecutorDelivery(final Handler handler) {
         // Make an Executor that just wraps the handler.
         mResponsePoster =
@@ -40,11 +115,6 @@ public class ExecutorDelivery implements ResponseDelivery {
                 };
     }
 
-    /**
-     * Creates a new response delivery interface, mockable version for testing.
-     *
-     * @param executor For running delivery tasks
-     */
     public ExecutorDelivery(Executor executor) {
         mResponsePoster = executor;
     }
@@ -84,35 +154,26 @@ public class ExecutorDelivery implements ResponseDelivery {
         @SuppressWarnings("unchecked")
         @Override
         public void run() {
-            // NOTE: If cancel() is called off the thread that we're currently running in (by
-            // default, the main thread), we cannot guarantee that deliverResponse()/deliverError()
-            // won't be called, since it may be canceled after we check isCanceled() but before we
-            // deliver the response. Apps concerned about this guarantee must either call cancel()
-            // from the same thread or implement their own guarantee about not invoking their
-            // listener after cancel() has been called.
 
-            // If this request has canceled, finish it and don't deliver.
+
             if (mRequest.isCanceled()) {
                 mRequest.finish("canceled-at-delivery");
                 return;
             }
 
-            // Deliver a normal response or error, depending.
             if (mResponse.isSuccess()) {
                 mRequest.deliverResponse(mResponse.result);
             } else {
                 mRequest.deliverError(mResponse.error);
             }
 
-            // If this is an intermediate response, add a marker, otherwise we're done
-            // and the request can be finished.
             if (mResponse.intermediate) {
                 mRequest.addMarker("intermediate-response");
             } else {
                 mRequest.finish("done");
             }
 
-            // If we have been provided a post-delivery runnable, run it.
+
             if (mRunnable != null) {
                 mRunnable.run();
             }
