@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.volley.kotlin.toolbox
 
 import com.volley.kotlin.AuthFailureError
