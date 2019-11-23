@@ -1,5 +1,5 @@
 # Google Volley Kotlin
-Volley-Kotlin is the Kotlin implementation of Volley HTTP library. This approach to convert the library into Kotlin, because there no plans [issues#34](https://github.com/google/volley/issues/34) for Google to rewrite the libary to Kotlin.
+Volley-Kotlin is the Kotlin implementation of Volley HTTP library. This approach to convert the library into Kotlin, because there are no plans [issues#34](https://github.com/google/volley/issues/34) for Google to write the libary to Kotlin
 
 >Volley is an HTTP library that makes networking for Android apps easier and most importantly, faster. Volley is available on [GitHub](https://github.com/google/volley).
 
@@ -65,12 +65,18 @@ val stringRequest = StringRequest(Request.Method.GET, url,
 // Add the request to the RequestQueue
 requestQueue.add(stringRequest)
 ```
-## SmartyPants
+## Contribution
 
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
+The following files have been translated and their progress can be shown below
 
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+`AuthFailureError.kt` ✔️
+`Cache.kt` ✔️
+`CacheDispatcher.java` ❌
+`ClientError.kt` ✔️
+`DefaultRetryPolicy.kt` ✔️
+`ExecutorDelivery.java` ❌
+`CacheDispatcher.java` ❌
+`CacheDispatcher.java` ❌
+`CacheDispatcher.java` ❌
+`CacheDispatcher.java` ❌
+`CacheDispatcher.java` ❌
