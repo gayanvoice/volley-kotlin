@@ -82,12 +82,12 @@ public class JsonObjectRequest extends JsonRequest<JSONObject> {
                     new String(
                             response.getData(),
                             HttpHeaderParser.parseCharset(response.getHeaders(), PROTOCOL_CHARSET));
-            return Response.success(
+            return Response.Companion.success(
                     new JSONObject(jsonString), HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {
-            return Response.error(new ParseError(e));
+            return Response.Companion.error(new ParseError(e));
         } catch (JSONException je) {
-            return Response.error(new ParseError(je));
+            return Response.Companion.error(new ParseError(je));
         }
     }
 }

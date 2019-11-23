@@ -95,6 +95,6 @@ public class StringRequest extends Request<String> {
             // So suppress the warning instead.
             parsed = new String(response.getData());
         }
-        return Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
+        return Response.Companion.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
     }
 }

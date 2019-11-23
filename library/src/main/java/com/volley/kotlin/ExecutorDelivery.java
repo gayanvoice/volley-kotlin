@@ -134,7 +134,7 @@ public class ExecutorDelivery implements ResponseDelivery {
     @Override
     public void postError(Request<?> request, VolleyError error) {
         request.addMarker("post-error");
-        Response<?> response = Response.error(error);
+        Response<?> response = Response.Companion.error(error);
         mResponsePoster.execute(new ResponseDeliveryRunnable(request, response, null));
     }
 
@@ -162,12 +162,12 @@ public class ExecutorDelivery implements ResponseDelivery {
             }
 
             if (mResponse.isSuccess()) {
-                mRequest.deliverResponse(mResponse.result);
+                mRequest.deliverResponse(mResponse.getResult());
             } else {
-                mRequest.deliverError(mResponse.error);
+                mRequest.deliverError(mResponse.getError());
             }
 
-            if (mResponse.intermediate) {
+            if (mResponse.getIntermediate()) {
                 mRequest.addMarker("intermediate-response");
             } else {
                 mRequest.finish("done");

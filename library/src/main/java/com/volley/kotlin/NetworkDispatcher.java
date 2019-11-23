@@ -146,8 +146,8 @@ public class NetworkDispatcher extends Thread {
 
             // Write to cache if applicable.
             // TODO: Only update cache metadata instead of entire record for 304s.
-            if (request.shouldCache() && response.cacheEntry != null) {
-                mCache.put(request.getCacheKey(), response.cacheEntry);
+            if (request.shouldCache() && response.getCacheEntry() != null) {
+                mCache.put(request.getCacheKey(), response.getCacheEntry());
                 request.addMarker("network-cache-written");
             }
 

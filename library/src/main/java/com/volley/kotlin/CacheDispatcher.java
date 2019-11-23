@@ -173,7 +173,7 @@ public class CacheDispatcher extends Thread {
                 request.addMarker("cache-hit-refresh-needed");
                 request.setCacheEntry(entry);
                 // Mark the response as intermediate.
-                response.intermediate = true;
+                response.setIntermediate(true);
 
                 if (!mWaitingRequestManager.maybeAddToWaitingRequests(request)) {
                     // Post the intermediate response back to the user and have
@@ -226,7 +226,7 @@ public class CacheDispatcher extends Thread {
         /** Request received a valid response that can be used by other waiting requests. */
         @Override
         public void onResponseReceived(Request<?> request, Response<?> response) {
-            if (response.cacheEntry == null || response.cacheEntry.isExpired()) {
+            if (response.getCacheEntry() == null || response.getCacheEntry().isExpired()) {
                 onNoUsableResponseReceived(request);
                 return;
             }
