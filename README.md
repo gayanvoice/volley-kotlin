@@ -96,13 +96,27 @@ The following files have been translated and their progress can be shown below
  - `AdaptedHttpStack.kt` ✔️ 
  - `AndroidAuthenticator.java` ❌
  - `Authenticator.kt` ✔️
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
- - `AndroidAuthenticator.java` ❌
+ - `BaseHttpStack.java` ❌
+ - `BasicNetwork.java` ❌
+ - `ByteArrayPool.java` ❌
+ - `ClearCacheRequest.kt` ✔️
+ - `DiskBasedCache.java` ❌
+ - `HttpClientStack.java` ❌
+ - `HttpHeaderParser.java` ❌
+ - `HttpResponse.java` ❌
+ - `ImageLoader.java` ❌
+ - `ImageRequest.java` ❌
+ - `JsonArrayRequest.java` ❌
+ - `JsonObjectRequest.java` ❌
+ - `JsonArrayRequest.java` ❌
+ - `JsonObjectRequest.java` ❌
+ - `JsonRequest.java` ❌
+ - `NetworkImageView.java` ❌
+ - `NoCache.kt` ✔️
+ - `PoolingByteArrayOutputStream.kt` ✔️
+ - `RequestFuture.java` ❌
+ - `StringRequest.java` ❌
+ - `Threads.kt` ✔️
+ - `Volley.java` ❌
+ 
+ 
