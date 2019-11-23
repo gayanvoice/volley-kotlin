@@ -70,8 +70,8 @@ public class JsonArrayRequest extends JsonRequest<JSONArray> {
         try {
             String jsonString =
                     new String(
-                            response.data,
-                            HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
+                            response.getData(),
+                            HttpHeaderParser.parseCharset(response.getHeaders(), PROTOCOL_CHARSET));
             return Response.success(
                     new JSONArray(jsonString), HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {

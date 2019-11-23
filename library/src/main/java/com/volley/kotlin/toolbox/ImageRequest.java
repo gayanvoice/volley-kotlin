@@ -184,7 +184,7 @@ public class ImageRequest extends Request<Bitmap> {
             try {
                 return doParse(response);
             } catch (OutOfMemoryError e) {
-                VolleyLog.Companion.e("Caught OOM for %d byte image, url=%s", response.data.length, getUrl());
+                VolleyLog.Companion.e("Caught OOM for %d byte image, url=%s", response.getData().length, getUrl());
                 return Response.error(new ParseError(e));
             }
         }
@@ -192,7 +192,7 @@ public class ImageRequest extends Request<Bitmap> {
 
     /** The real guts of parseNetworkResponse. Broken out for readability. */
     private Response<Bitmap> doParse(NetworkResponse response) {
-        byte[] data = response.data;
+        byte[] data = response.getData();
         BitmapFactory.Options decodeOptions = new BitmapFactory.Options();
         Bitmap bitmap = null;
         if (mMaxWidth == 0 && mMaxHeight == 0) {

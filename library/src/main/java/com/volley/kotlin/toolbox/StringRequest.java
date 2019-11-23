@@ -88,12 +88,12 @@ public class StringRequest extends Request<String> {
     protected Response<String> parseNetworkResponse(NetworkResponse response) {
         String parsed;
         try {
-            parsed = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+            parsed = new String(response.getData(), HttpHeaderParser.parseCharset(response.getHeaders()));
         } catch (UnsupportedEncodingException e) {
             // Since minSdkVersion = 8, we can't call
             // new String(response.data, Charset.defaultCharset())
             // So suppress the warning instead.
-            parsed = new String(response.data);
+            parsed = new String(response.getData());
         }
         return Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
     }

@@ -52,7 +52,7 @@ public class HttpHeaderParser {
     public static Cache.Entry parseCacheHeaders(NetworkResponse response) {
         long now = System.currentTimeMillis();
 
-        Map<String, String> headers = response.headers;
+        Map<String, String> headers = response.getHeaders();
 
         long serverDate = 0;
         long lastModified = 0;
@@ -120,14 +120,14 @@ public class HttpHeaderParser {
         }
 
         Cache.Entry entry = new Cache.Entry();
-        entry.setData(response.data);
+        entry.setData(response.getData());
         entry.setEtag(serverEtag);
         entry.setSoftTtl(softExpire);
         entry.setTtl(finalExpire);
         entry.setServerDate(serverDate);
         entry.setLastModified(lastModified);
         entry.setResponseHeaders(headers);
-        entry.setAllResponseHeaders(response.allHeaders);
+        entry.setAllResponseHeaders(response.getAllHeaders());
 
         return entry;
     }
